@@ -13,13 +13,14 @@ int main()
 
 	std::cout << friends[0] << std::endl;
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < sizeof(friends) / sizeof(std::string); i++)	// i < 3과 같음 = sizeof(friends) / sizeof(friends[0])  
 	{
 		std::cout << friends[i] << std::endl;
 	}
+	// sizeof(friends) sizeog 안에 변수 or type을 인자로 넘겨줌. 크기를 byte 단위로 구함.
 
 	for ( std::string fri : friends)	// for each문
-	{
+	{// for (변수 선언 : 배열명)
 		// fri = "홍길동"
 		// fri = "성춘향" 로 바뀜
 		// fri = "코딩온" 로 바뀜
