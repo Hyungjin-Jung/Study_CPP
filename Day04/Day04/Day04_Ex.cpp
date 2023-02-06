@@ -54,7 +54,7 @@ int main()
 	return 0;
 }
 */
-// --------- 선생님 풀이 -----------
+//--------- 선생님 풀이 -----------
 //#include<iostream>
 //#include<string>
 //
@@ -142,7 +142,7 @@ int main()
 //	return 0;
 //}
 
-// vector 실습 2
+// vector 실습 1
 
 //#include<iostream>
 //#include<string>
