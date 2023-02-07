@@ -77,7 +77,7 @@
 //	return 0;
 //}
 
-// 실습2 회원 명부를 응용한 로그인 기능
+//// 실습2 회원 명부를 응용한 로그인 기능
 //#include <iostream>
 //#include <fstream>
 //#include <string>

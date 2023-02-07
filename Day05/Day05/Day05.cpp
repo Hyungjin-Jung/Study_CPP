@@ -37,11 +37,11 @@
 //	std::cout << "bbb : " << ns_test::num << std::endl;
 //}
 //
-//using ns_test::num;
+//using ns_test::num;	// ns_test 내에 있는 num에 대한 접근을 풀어줌
 //
 //void aaa()
 //{
-//	num = 7;
+//	num = 7;	// ns_test 내에 있는 num에 대한 접근을 풀었기 때문에 ns_test::num을 num으로 써도 된다.
 //	std::cout << "aaa : " << num << std::endl;
 //}
 //
@@ -51,12 +51,12 @@
 //	
 //	using namespace ns_test;	// 메인 함수 안에서 ns_test:: 생략 가능하게 함.
 //
-//	ns_test::num = 5;
-//	ns_test::test();
+//	num = 5;	// ns_test의 num
+//	ns_test::test();	// test 함수 호출
 //	int num = 0;
-//
-//	std::cout << ns_test::num << std::endl;
-//	std::cout << num << std::endl;
+//	
+//	std::cout << ns_test::num << std::endl;	// 만약 메인과 같은 변수명을 사용했다면 풀네임으로 써야 한다.
+//	std::cout << num << std::endl;	// 메인의 num
 //
 //	bbb();
 //	aaa();
@@ -82,7 +82,7 @@
 //	{
 //		cout << "파일 없음" << std::endl;
 //
-//		return 1;
+//		return 1;	// 보통 0은 참임을 의미, 실패했으므로 0이 아닌 값을 반환
 //	}
 //
 //	std::string str, str2, line;
@@ -95,7 +95,6 @@
 //	}
 //	*/
 //	//std::getline(file, line);	// file의 내용을 한 줄씩 읽어서 line에 저장. (개행 기준)
-//
 //	while (std::getline(file, line))
 //	{
 //		cout << line << std::endl;
@@ -105,7 +104,6 @@
 //
 //	return 0;
 //}
-
 
 //#include<iostream>
 //#include<string>	
@@ -128,11 +126,10 @@
 //	if (file.fail())
 //	{
 //		cout << "파일 없음" << endl;
-//		return 1;	// 보통 0은 참임을 의미
+//		return 1;	
 //	}
 //	
 //	file << "hello world!";	
-//
 //
 //	return 0;
 //}
