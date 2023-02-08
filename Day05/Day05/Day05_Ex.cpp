@@ -171,14 +171,20 @@ using namespace std;
 
 int main() {
 	string name_in, pw_in, name, pw;
-	cout << "이름을 입력하세요. ";
+	cout << "이름을 입력하세요. : ";		// 사용자에게 "이름을 입력하세요: "라는 메세지를 출력한 뒤 이름 입력받기
 	cin >> name_in;
-	cout << "비밀번호를 입력하세요. ";
-	cin >> pw_in;
+	cout << "비밀번호를 입력하세요. : ";	// 사용자에게 "비밀번호를 입력하세요: "라는 메세지를 출력한 뒤 비번 입력 받기
+	cin >> pw_in;	
+
 
 	ifstream file("member.txt");
-	//if (file.fail()) {}
+	if (file.fail())
+	{
+		cout << "파일 없음" << endl;
+		return 1;
+	}
 
+	// member.txt. 에서 한 줄씩 "이름"과 "비밀번호"를 검사하여 로그인 성공시 "로그인 성공" 실패시 "로그인 실패" 출력
 	//name_in + " " + pw_in 
 	bool is_login = false;// 로그인 성공 여부를 저장하는 변수
 	while (file >> name >> pw) { // getline(file, line)
@@ -193,10 +199,10 @@ int main() {
 		cout << "로그인 성공\n";
 		string tel_in, tel, member_tel_tmp;
 		cout << "전화번호를 입력해 주세요. ";
-		cin >> tel_in;
+		cin >> tel_in;	//파일을 읽어 중복 name이 있는지 확인 후 있다면 전화번호만 수정
 		ifstream tel_file_r("member_tel.txt");
 
-		bool is_modify = false;
+		bool is_modify = false;	// 수정여부 확인 변수
 		if (!tel_file_r.fail())
 		{
 			while (tel_file_r >> name >> tel) {
@@ -209,19 +215,25 @@ int main() {
 				}
 			}
 		}
-
+		//파일 쓰기 -> 회원 이름과 전화번호 저장
 		ofstream tel_file;
 		if (is_modify)
-		{
-			tel_file.open("member_tel.txt");
-			tel_file << member_tel_tmp;
+		{// 덮어 쓰기
+			tel_file.open("member_tel.txt");	
+			tel_file << member_tel_tmp;		
 		}
 		else
-		{
+		{//이어 쓰기
 			tel_file.open("member_tel.txt", std::ios::app);
 			tel_file << name_in + " " + tel_in + "\n";
 		}
-		// if(tel_file.fail())
+		
+		if (tel_file.fail())
+		{
+			cout << "파일 없음" << endl;
+			return 1;
+		}
+
 		tel_file.close();
 	}
 	else  cout << "로그인 실패";

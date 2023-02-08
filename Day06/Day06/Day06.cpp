@@ -23,7 +23,7 @@
 //
 //	return 0;
 //}
- 
+
 //----------------Å¬·¡½º-----------------
 #include<iostream>
 #include<string>

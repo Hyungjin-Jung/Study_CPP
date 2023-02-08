@@ -81,21 +81,17 @@ class character
 		{
 			this->name = name;
 		}
-		void level_up(int level)
+		void level_up()
 		{
 			this->level += 1;
 		}
-		void item_get(int item)
+		void item_get()
 		{
 			this->item += 1;
 		}
-		void item_use(int item)
+		void item_use()
 		{
 			this->item -= 1;
-		}
-		void console(int item)
-		{
-			cout << this->name << this->level <<this->item;
 		}
 		void output()
 		{
@@ -134,21 +130,21 @@ int main()
 		case 2:
 		{
 			cout << endl << "LEVEL UP!!! ";
-			c.level_up(level);
+			c.level_up();
 			cout << endl;
 			break;
 		}
 		case 3:
 		{
 			cout << endl << "아이템 줍줍 ";
-			c.item_get(item);
+			c.item_get();
 			cout << endl;
 			break;
 		}
 		case 4:
 		{
 			cout << endl << "아이템 시용 ";
-			c.item_use(item);
+			c.item_use();
 			cout << endl;
 			break;
 		}
