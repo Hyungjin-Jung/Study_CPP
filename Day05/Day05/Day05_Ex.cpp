@@ -121,38 +121,110 @@
 //
 //	return 0;
 //}
-/*
+
+//// 실습2 회원 명부를 응용한 로그인 기능 (선생님 풀이)
+//#include <iostream>
+//#include <fstream>
+//#include <string>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	string name_in, pw_in, name, pw; 
+//
+//	cout << "이름을 입력하세요. : ";
+//	cin >> name_in;
+//	cout << "비밀번호를 입력하세요. : ";
+//	cin >> pw_in;
+//
+//	ifstream login_i("member.txt");
+//
+//	if (login_i.fail())
+//	{
+//		cout << "파일 없음" << endl;
+//		return 1;
+//	}
+//	bool is_login = false;	// 로그인 여부를 저장하는 변수
+//	while (login_i >> name >> pw)
+//	{
+//		if (name_in == name && pw_in == pw)
+//		{
+//			// 로그인 성공
+//			is_login = true;
+//			break;
+//		}
+//	}
+//	if (is_login)
+//		cout << "로그인 성공" << endl;
+//	else
+//		cout << "로그인 실패" << endl;
+//
+//	return 0;
+//}
+
 // 번외 실습
 #include <iostream>
 #include <fstream>
-#include <string>
 
 using namespace std;
 
-int main() 
-{
-	string name, pw;
+int main() {
+	string name_in, pw_in, name, pw;
+	cout << "이름을 입력하세요. ";
+	cin >> name_in;
+	cout << "비밀번호를 입력하세요. ";
+	cin >> pw_in;
 
-	ofstream login("member.txt");
+	ifstream file("member.txt");
+	//if (file.fail()) {}
 
-	for (int i = 0; i < 3; i++)
-	{
-		cin >> name >> pw;
-		login << name << " " << pw << "\n";
+	//name_in + " " + pw_in 
+	bool is_login = false;// 로그인 성공 여부를 저장하는 변수
+	while (file >> name >> pw) { // getline(file, line)
+		if (name_in == name && pw_in == pw) {
+			is_login = true;
+			break;
+		}
 	}
-	login.close();
+	file.close();
 
-	ifstream login_i("member.txt");
-	cin >> name >> pw;
-	login << name << " " << pw << "\n";
-	
-	string line, file_content = "";
-	while (getline(login_i, line))
-	{
-		file_content += line + "\n";
+	if (is_login) {
+		cout << "로그인 성공\n";
+		string tel_in, tel, member_tel_tmp;
+		cout << "전화번호를 입력해 주세요. ";
+		cin >> tel_in;
+		ifstream tel_file_r("member_tel.txt");
+
+		bool is_modify = false;
+		if (!tel_file_r.fail())
+		{
+			while (tel_file_r >> name >> tel) {
+				if (name == name_in) { // 이미 파일에 저장된 회원
+					is_modify = true;
+					member_tel_tmp += name + " " + tel_in + "\n";
+				}
+				else {
+					member_tel_tmp += name + " " + tel + "\n";
+				}
+			}
+		}
+
+		ofstream tel_file;
+		if (is_modify)
+		{
+			tel_file.open("member_tel.txt");
+			tel_file << member_tel_tmp;
+		}
+		else
+		{
+			tel_file.open("member_tel.txt", std::ios::app);
+			tel_file << name_in + " " + tel_in + "\n";
+		}
+		// if(tel_file.fail())
+		tel_file.close();
 	}
-	cout << "----------회원 명부 파일 읽기-----------\n" << file_content;
+	else  cout << "로그인 실패";
 
 	return 0;
 }
-*/
