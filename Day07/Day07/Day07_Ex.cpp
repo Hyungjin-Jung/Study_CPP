@@ -1,9 +1,8 @@
-/*
+
 #include <iostream>
 
 using namespace std;
 
-//private > protected > public
 class Shape 
 {
 protected:
@@ -55,10 +54,7 @@ int main()
 	double length = 0, height = 0;
 	int num = 1;
 
-	//Rectangle R;
-	//Triangle T;
-
-	cout << "변의 길이를 입력해주세요. : ";
+	cout << "변의 개수를 입력해주세요. : ";
 	cin >> num;
 	cout << "밑변의 길이를 입력해주세요. : ";
 	cin >> length;
@@ -73,22 +69,24 @@ int main()
 	{
 	case 4:
 	{
+		S.printinfo();
 		R.area_R();
 		break;
 	}
 	case 3:
 	{
+		S.printinfo();
 		T.area_T();
 		break;
 	}
 	default:
-		cout << "변의 길이를 잘못 입력하셨습니다. \n";
+		cout << "변의 개수를 잘못 입력하셨습니다. \n";
 	}
 
 	return 0;
 }
-*/
 
+/*
 #include <iostream>
 
 using namespace std;
@@ -210,3 +208,4 @@ int main()
 
 	return 0;
 }
+*/

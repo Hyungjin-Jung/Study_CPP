@@ -12,6 +12,7 @@ private:	// 하위 상속자 접근 불가
 	string gender;
 public:	// 하위 상속자, 메인 함수 접근 가능
 	int age;
+	
 	void talk()
 	{
 		cout << "말하기\n";
@@ -40,10 +41,12 @@ public:
 		age = 20;	// Person의 age 20으로 초기화
 		//gender = "여자"; 
 	}
-		void set_name(string name) {
+	void set_name(string name) 
+	{
 		this->name = name;
 	}
-	string get_name() {
+	string get_name() 
+	{
 		return name;
 	}
 };
@@ -128,7 +131,6 @@ int main()
 {
 	Student s;
 	Student s2("1234");
-
 
 	return 0;
 }
