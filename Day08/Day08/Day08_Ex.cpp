@@ -11,10 +11,6 @@ protected:
 	double price;
 	string name, company;
 public:
-	void test()
-	{
-		cout << "Student의 테스트 함수입니다. \n";
-	}
 	void infor()
 	{
 		cout << "상품 이름 : " << name << endl;
@@ -57,10 +53,11 @@ int main()
 	{
 		S[i].infor();
 	}
-
+	// new를 사용하여 동적으로 공간을 할당한 것이 아니기 때문에 공간 해제 필요 X.
 	return 0;
 }
 */
+/*
 // 추상 메소드 실습
 #include<iostream>
 
@@ -147,5 +144,7 @@ int main()
 		}
 
 	}
+	
 	return 0;
 }
+*/
