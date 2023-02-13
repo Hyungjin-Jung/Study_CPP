@@ -72,7 +72,7 @@ int main()
 	return 0;
 }
 */
-
+/*
 #include<iostream>
 #include<vector>
 
@@ -142,28 +142,18 @@ public:
 		cout << "모양 : " << shape << endl;
 		cout << "제조 회사 : " << company << endl << endl;
 	}
-	void input()
-	{
-		cout << "가격: " << endl;
-		cin >> price;
-	}
 };
 
 int Snack::count = 0;
 
 int main()
 {
-	/*
-	Snack* S[4] = { new Candy(1000, "청포도", "롯데제과", "포도맛"), new Candy(1200, "스카치", "롯데제과", "커피맛"),
-			new Chocolate(1500, "가나", "롯데 제과", "직사각형"), new Chocolate(2000, "크런키", "롯데 제과", "직사각형") };
-	*/
 	int num = 1;
 	double price = 0; 
 	string name, company, shape, taste;
 	Snack s;
+	vector<Snack*> snacks;
 
-	vector<Snack*> snacks; /* = {new Candy(price, name, company, taste) ,
-		new Chocolate(price, name, company, shape) }*/
 	while (num)
 	{
 		cout << "과자 바구니에 추가할 간식을 고르시오. (1: 사탕, 2: 초콜릿, 0: 종료) : ";
@@ -207,29 +197,27 @@ int main()
 			}
 			default:
 			{
-				cout << "0 ~ 2 사이의 숫자를 입력하세요. \n\n";
+				cout << "0 ~ 2 사이의 숫자를 입력하세요. \n";
 				break;
 			}
 		}
+		cout << endl;
 	} 
 
-	cout << "과자 바구니에 담긴 간식의 개수는 " << Snack::get_count() << "개 입니다." << endl;
+	cout << "과자 바구니에 담긴 간식의 개수는 " << Snack::get_count() << "개 입니다. \n" << endl;
 	
 	int size = snacks.size();
-	cout << size;
 
 	for (int i = 0; i < size; i++)
 	{
-		snacks[i];
-		cout << " o";
+		snacks[i]->info();
 	}
-
 	
 	for (int i = 0; i < size; i++)
 	{
 		delete snacks.at(i);
 	}
-	
 
 	return 0;
 }
+*/

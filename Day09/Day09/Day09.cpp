@@ -53,24 +53,24 @@ public:
 int main()
 {
 	// 업캐스팅
-	//Person s = Student();	// 사람, 학생 소멸자 실행. + 사람 생성자 실행 (사람 소멸자 생성 예정)
-	//s.info();	// 정적 바인딩. (사람입니다. 출력)
+	Person s = Student();	// 사람, 학생 소멸자 실행. + 사람 생성자 실행 (사람 소멸자 생성 예정)
+	s.info();	// 정적 바인딩. (사람입니다. 출력)
 
-	//Person* ss = new Student();
-	//ss->info();	// (*ss).info와 같음. 동적 바인딩. (학생입니다. 출력)
-	////ss->test();	// 오류. 부모 클래스에 없는 멤버는 접근할 수 없음
-	//delete ss;	// 자식 클래스 소멸자 실행. (부모 클래스 소멸자에 virtual 있을 시)
+	Person* ss = new Student();
+	ss->info();	// (*ss).info와 같음. 동적 바인딩. (학생입니다. 출력)
+	//ss->test();	// 오류. 부모 클래스에 없는 멤버는 접근할 수 없음
+	delete ss;	// 자식 클래스 소멸자 실행. (부모 클래스 소멸자에 virtual 있을 시)
 
-	//Student stu;	// 정적 메모리
-	//Person* sss = &stu;
-	//sss->info();	
-	////delete sss; // 빌드 중에 메모리가 할당되므로 delete를 사용하여 해제를 할 필요가 없다. (실행 중 오류 발생, 런타임 에러)
+	Student stu;	// 정적 메모리
+	Person* sss = &stu;
+	sss->info();	// 학생입니다. 출력
+	//delete sss; // 빌드 중에 메모리가 할당되므로 delete를 사용하여 해제를 할 필요가 없다. (실행 중 오류 발생, 런타임 에러)
 
 	Person* per_arr[3] = { new Student(), new Instructor(), new Student() };
 	// per_arr는 동적 메모리가 아님
 	for (int i = 0; i < 3; i++)
 	{
-		per_arr[i]->info();
+		per_arr[i]->info();	// 학생, 강사, 학생 출력
 	}
 
 	for (int i = 0; i < 3; i++)
@@ -202,7 +202,7 @@ int main()
 	return 0;
 }
 */
-
+/*
 #include<iostream>
 #include<vector>
 
@@ -211,9 +211,9 @@ using namespace std;
 class Person
 {
 protected:
-	string name;
+	string name;	// 일반 필드
 	static int static_var;	// 객체 별로 공간이 따로 할당되지 않고, 모든 객체가 같은 공간을 공유.
-	static int count;
+	static int count;	// static 필드
 public:
 	static void static_method()
 	{
@@ -356,3 +356,4 @@ int main()
 
 	return 0;
 }
+*/
