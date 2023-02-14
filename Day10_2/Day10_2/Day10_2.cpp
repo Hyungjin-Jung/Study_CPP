@@ -1,4 +1,4 @@
-
+/*
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -39,8 +39,8 @@ int main()
 
 	return 0;
 }
+*/
 
-/*
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -64,7 +64,7 @@ int main() {
 			}
 		}
 	}
-
+	cout << "로또 번호는 : ";
 	for (int i = 0; i < 6; i++) 
 	{
 		cout << lotto[i] << " ";
@@ -72,4 +72,3 @@ int main() {
 
 	return 0;
 }
-*/
