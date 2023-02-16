@@ -45,12 +45,7 @@ int main()
 		count += num;
 	}
 
-	if (turn == true)
-	{
-		cout << "게임 종료!! 컴퓨터의 승리입니다. \n";
-	}
-	else
-		cout << "게임 종료!! 사용자의 승리입니다. \n";
+	turn == true ? cout << "게임 종료!! 컴퓨터의 승리입니다. \n" : cout << "게임 종료!! 사용자의 승리입니다. \n";
 
 	return 0;
 }
