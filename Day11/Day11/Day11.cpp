@@ -5,14 +5,10 @@
 
 using namespace std;
 
-void baskin(int count, int num)
-{
-
-}
 // 배스킨라빈스 31 게임
 int main()
 {
-	int num = 0, count = 1, k = 0;
+	int num = 0, count = 1;
 	bool turn = false;
 
 	while (count < 32)
@@ -35,7 +31,6 @@ int main()
 			{
 				cout << "1 ~ 3의 숫자를 입력해주세요. \n";
 				num = 0;
-				turn = false;
 			}
 			else
 			{
@@ -48,7 +43,6 @@ int main()
 			cout << count + i << endl;
 		}
 		count += num;
-		k++;
 	}
 
 	if (turn == true)
