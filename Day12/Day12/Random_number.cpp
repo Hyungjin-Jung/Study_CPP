@@ -31,14 +31,9 @@ int main()
 			count++;
 		}
 	}
-	cout << "로또 번호는 : ";
-	for (int i = 0; i < 6; i++)
-	{
-		cout << lotto[i] << " ";
-	}
-	cout << endl;
 
 	count = 0;
+
 	while (count < 6)
 	{
 		bool dupli = false;
@@ -65,11 +60,16 @@ int main()
 				count++;
 			}
 		}
+	}
+	cout << "-----------------------------------\n";
 
+	cout << endl <<"로또 번호 : ";
+	for (int i = 0; i < 6; i++)
+	{
+		cout << lotto[i] << " ";
 	}
 
-	cout << "나의 번호 : ";
-
+	cout << endl <<"나의 번호 : ";
 	for (int i = 0; i < 6; i++)
 	{
 		cout << user[i] << " ";
@@ -88,8 +88,9 @@ int main()
 			}
 		}
 	}
-	cout << endl << "맞춘 개수: " << count << endl;
 
+	cout << endl <<"맞춘 개수에 따라 1 ~ 7등까지의 결과가 나옵니다. " << endl;
+	cout << endl << "맞춘 개수: " << count << endl;
 	cout << 7 - count << "등!! " << endl;
 
 	return 0;
