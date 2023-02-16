@@ -11,13 +11,13 @@ int main()
 
 	int lotto[6] = {};
 	int user[6] = {};
-	int count = 0, user_num = 0;
+	int count = 0, user_num = 0, amount = 6;
 
-	while (count < 6)
+	while (count < amount)
 	{
 		bool dupli = false;
 		int num = std::rand() % 25 + 1;
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < amount; i++)
 		{
 			if (lotto[i] == num)
 			{
@@ -34,7 +34,7 @@ int main()
 
 	count = 0;
 
-	while (count < 6)
+	while (count < amount)
 	{
 		bool dupli = false;
 		cout << count + 1 << "번째 번호를 입력하세요. : ";
@@ -45,7 +45,7 @@ int main()
 		}
 		else
 		{
-			for (int i = 0; i < 6; i++)
+			for (int i = 0; i < amount; i++)
 			{
 				if (user[i] == user_num)
 				{
@@ -64,23 +64,23 @@ int main()
 	cout << "-----------------------------------\n";
 
 	cout << endl <<"로또 번호 : ";
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < amount; i++)
 	{
 		cout << lotto[i] << " ";
 	}
 
 	cout << endl <<"나의 번호 : ";
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < amount; i++)
 	{
 		cout << user[i] << " ";
 	}
 
 	count = 0;
 
-	for (int j = 0; j < 6; j++)
+	for (int j = 0; j < amount; j++)
 	{
 		lotto[j];
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < amount; i++)
 		{
 			if (lotto[j] == user[i])
 			{
