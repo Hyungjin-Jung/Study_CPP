@@ -63,13 +63,13 @@ int main()
 	}
 	cout << "-----------------------------------\n";
 
-	cout << endl <<"로또 번호 : ";
+	cout << endl << "로또 번호 : ";
 	for (int i = 0; i < amount; i++)
 	{
 		cout << lotto[i] << " ";
 	}
 
-	cout << endl <<"나의 번호 : ";
+	cout << endl << "나의 번호 : ";
 	for (int i = 0; i < amount; i++)
 	{
 		cout << user[i] << " ";
@@ -79,7 +79,7 @@ int main()
 
 	for (int j = 0; j < amount; j++)
 	{
-		lotto[j];
+		cout << lotto[j] << " ";
 		for (int i = 0; i < amount; i++)
 		{
 			if (lotto[j] == user[i])
@@ -89,7 +89,7 @@ int main()
 		}
 	}
 
-	cout << endl <<"맞춘 개수에 따라 1 ~ 7등까지의 결과가 나옵니다. " << endl;
+	cout << endl << "맞춘 개수에 따라 1 ~ 7등까지의 결과가 나옵니다. " << endl;
 	cout << endl << "맞춘 개수: " << count << endl;
 	cout << 7 - count << "등!! " << endl;
 
