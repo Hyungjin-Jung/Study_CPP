@@ -9,14 +9,16 @@ int main()
 {
 	std::srand(time(NULL));
 
-	int com[3] = {};
-	int user[3] = {};
-	int count = 0, user_num = 0, amount = 3;
+	const int amount = 3;
+	int com[amount] = {};
+	int user[amount] = {};
+	int count = 0, user_num = 0; 
 	int value_count = 0, place_count = 0, num_count = 0;
+	bool dupli = false;
 
 	while (count < amount)
 	{
-		bool dupli = false;
+		dupli = false;
 		int num = std::rand() % 9 + 1;
 		for (int i = 0; i < amount; i++)
 		{
@@ -33,29 +35,30 @@ int main()
 		}
 	}
 
+	cout << "컴퓨터의 번호 : ";
+
+	for (int i = 0; i < amount; i++)
+	{
+		cout << com[i] << " ";
+	}
+	cout << endl << endl;
+
 	count = 0;
 
 	do
 	{
-		cout << "1 ~ 9 사이의 숫자 3개를 입력 하시오. (이외의 숫자: 종료)" << endl;
+		cout << "1 ~ 9 사이의 숫자 3개를 입력 하시오. (이외의 숫자: 종료)" << endl << "입력한 수: ";
 		num_count++;
 		while (count < amount)
 		{
 			cin >> user_num;
 			user[count] = user_num;
 			count++;
+			if (user_num > 9 || user_num < 1)
+			{
+				dupli = true;
+			}
 		}
-
-		cout << "컴퓨터의 번호 : ";
-
-		for (int i = 0; i < amount; i++)
-		{
-			cout << com[i] << " ";
-		}
-
-		count = 0;
-		place_count = 0;
-		value_count = 0;
 
 		for (int j = 0; j < amount; j++)
 		{
@@ -72,14 +75,20 @@ int main()
 			}
 		}
 
-		cout << endl << "Strike : " << place_count << "\t Ball : " << value_count << endl << endl;
+		cout << "Strike : " << place_count << "\t Ball : " << value_count << endl << endl;
 
 		if (place_count == 3)
 		{
 			cout << num_count << "번 만에 맞췄습니다." << endl;
 			break;
 		}
-	} while (user_num < 10 && user_num > 0);
+		else
+		{
+			count = 0;
+			place_count = 0;
+			value_count = 0;
+		}
+	} while (dupli == false);
 
 	return 0;
 }
