@@ -79,7 +79,6 @@ int main()
 
 	for (int j = 0; j < amount; j++)
 	{
-		cout << lotto[j] << " ";
 		for (int i = 0; i < amount; i++)
 		{
 			if (lotto[j] == user[i])
