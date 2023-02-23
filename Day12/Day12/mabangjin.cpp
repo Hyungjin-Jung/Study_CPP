@@ -48,7 +48,7 @@ int main()
 {
 	int num = 0;
 	cin >> num;
-	int** num_arr = new int* [num];		// 행의 크기가 num인 이차원 배열
+	int** num_arr = new int* [num * num];		// 행의 크기가 num인 이차원 배열
 	int center = (num + 1) / 2;
 	int value = 1;
 
@@ -81,9 +81,8 @@ int main()
 			j = 1; 
 		}
 		value++;
-
 	}
-
+	
 	for (int i = 1; i <= num; i++) 
 	{
 		for (int j = 1; j <= num; j++) 
