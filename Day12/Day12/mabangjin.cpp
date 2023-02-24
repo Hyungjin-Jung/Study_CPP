@@ -12,7 +12,7 @@ int main()
 		cout << "마방진의 행 혹은 열의 수를 자연수로 입력해주세요 : ";
 		cin >> num;
 		cout << endl;
-		if (num > 0) 
+		if (num % 2 == 1) 
 			break;
 	}
 
