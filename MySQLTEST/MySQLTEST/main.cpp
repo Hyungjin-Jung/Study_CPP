@@ -31,24 +31,48 @@ int main()
 	con->setSchema("cpp_db");
 	// 데이터베이스 쿼리 실행
 	stmt = con->createStatement();
-	stmt->execute("DROP TABLE IF EXISTS inventory");
+	stmt->execute("DROP TABLE IF EXISTS departments");
 	cout << "Finished dropping table (if existed)" << endl;
-	stmt->execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+	stmt->execute("CREATE TABLE departments (department_id INTEGER PRIMARY KEY, department_name VARCHAR(50), manager_id INTEGER, location_id VARCHAR(50));");
 	cout << "Finished creating table" << endl;
 	delete stmt;
-	pstmt = con->prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
-	pstmt->setString(1, "banana");
-	pstmt->setInt(2, 150);
+	pstmt = con->prepareStatement("INSERT INTO departments VALUES(?,?,?,?)");
+
+	pstmt->setInt(1, 1);
+	pstmt->setString(2, "Engineering");
+	pstmt->setInt(3, 3);
+	pstmt->setString(4, "New York");
 	pstmt->execute();
 	cout << "One row inserted." << endl;
-	pstmt->setString(1, "orange");
-	pstmt->setInt(2, 154);
+
+	pstmt->setInt(1, 2);
+	pstmt->setString(2, "Sales");
+	pstmt->setInt(3, 5);
+	pstmt->setString(4, "Los Angeles");
 	pstmt->execute();
 	cout << "One row inserted." << endl;
-	pstmt->setString(1, "apple");
-	pstmt->setInt(2, 100);
+
+	pstmt->setInt(1, 3);
+	pstmt->setString(2, "Marketing");
+	pstmt->setInt(3, 7);
+	pstmt->setString(4, "Chicago");
 	pstmt->execute();
 	cout << "One row inserted." << endl;
+
+	pstmt->setInt(1, 4);
+	pstmt->setString(2, "Accounting");
+	pstmt->setInt(3, 8);
+	pstmt->setString(4, "Houston");
+	pstmt->execute();
+	cout << "One row inserted." << endl;
+
+	pstmt->setInt(1, 5);
+	pstmt->setString(2, "IT");
+	pstmt->setInt(3, 10);
+	pstmt->setString(4, "San Francisco");
+	pstmt->execute();
+	cout << "One row inserted." << endl;
+
 	// MySQL Connector/C++ 정리
 	delete pstmt;
 	delete con;
