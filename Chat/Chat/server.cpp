@@ -107,7 +107,7 @@ void server_init()
 
 	SOCKADDR_IN server_addr = {};
 	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(7778);	// htons() : 2바이트 이상의 변수에 대해 바이트 순서 체계를 바꿔주는것(short)
+	server_addr.sin_port = htons(7777);	// htons() : 2바이트 이상의 변수에 대해 바이트 순서 체계를 바꿔주는것(short)
 	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);	// INADDR_ANY : localhost 를 의미, localhost = 127.0.0.1
 	
 	bind(server_sock.sck,(sockaddr*)&server_addr, sizeof(server_addr));
@@ -195,7 +195,7 @@ void recv_msg(int idx)
 		if (recv(sck_list[idx].sck, buf, MAX_SIZE, 0) > 0)
 		{
 			// 만약 정상적으로 받았다면
-			msg = sck_list[idx].user + ':' + buf;
+			msg = sck_list[idx].user + " : " + buf;
 			cout << msg << endl;
 			send_msg(msg.c_str());
 		}

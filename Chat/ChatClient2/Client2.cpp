@@ -56,7 +56,7 @@ int main()
 		client_sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 		SOCKADDR_IN client_addr = {};
 		client_addr.sin_family = AF_INET;
-		client_addr.sin_port = htons(7778);
+		client_addr.sin_port = htons(7777);
 		InetPton(AF_INET, TEXT("127.0.0.1"), &client_addr.sin_addr);
 
 		while (1)
